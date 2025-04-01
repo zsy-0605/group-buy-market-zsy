@@ -24,7 +24,15 @@
     </resultMap>
 
     <select id="queryGroupBuyActivityList" resultMap="dataMap">
-        select * from group_buy_activity
+        select * from group_buy_market.group_buy_activity
+    </select>
+    <select id="queryValidGroupBuyActivity" resultType="cn.bugstack.infrastructure.dao.po.GroupBuyActivity" resultMap="dataMap">
+        select activity_id, activity_name, source, channel, goods_id, discount_id, group_type, take_limit_count,
+               target, valid_time, status, start_time, end_time, tag_id, tag_scope
+        from group_buy_market.group_buy_activity
+        where group_buy_market.group_buy_activity.source = #{source} and group_buy_market.group_buy_activity.channel = #{channel}
+        order by id desc
+        limit 1
     </select>
 
 

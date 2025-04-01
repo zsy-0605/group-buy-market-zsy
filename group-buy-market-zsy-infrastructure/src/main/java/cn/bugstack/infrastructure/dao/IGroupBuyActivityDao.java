@@ -1,5 +1,6 @@
 package cn.bugstack.infrastructure.dao;
 
+import cn.bugstack.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import cn.bugstack.infrastructure.dao.po.GroupBuyActivity;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,5 +15,7 @@ import java.util.List;
 public interface IGroupBuyActivityDao {
 
     List<GroupBuyActivity> queryGroupBuyActivityList();
+
+    GroupBuyActivity queryValidGroupBuyActivity(GroupBuyActivity groupBuyActivityReq);
 
 }
