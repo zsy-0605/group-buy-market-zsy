@@ -16,8 +16,9 @@
     </resultMap>
 
     <select id="queryGroupBuyDiscountList" resultMap="dataMap">
-        select * from group_buy_market
+        select * from group_buy_discount
     </select>
+
     <select id="queryGroupBuyActivityDiscountByDiscountId" resultType="cn.bugstack.infrastructure.dao.po.GroupBuyDiscount" parameterType="java.lang.String" resultMap="dataMap">
         select discount_id, discount_name, discount_desc, discount_type, market_plan, market_expr, tag_id
         from group_buy_discount

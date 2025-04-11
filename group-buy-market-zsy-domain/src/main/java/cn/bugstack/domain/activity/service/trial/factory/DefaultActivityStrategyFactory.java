@@ -1,7 +1,7 @@
 package cn.bugstack.domain.activity.service.trial.factory;
 
 import cn.bugstack.domain.activity.model.entity.MarketProductEntity;
-import cn.bugstack.domain.activity.model.entity.TrailBalanceEntity;
+import cn.bugstack.domain.activity.model.entity.TrialBalanceEntity;
 import cn.bugstack.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import cn.bugstack.domain.activity.model.valobj.SkuVO;
 import cn.bugstack.domain.activity.service.trial.node.RootNode;
@@ -12,6 +12,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 public class DefaultActivityStrategyFactory {
 
@@ -21,7 +23,7 @@ public class DefaultActivityStrategyFactory {
         this.rootNode = rootNode;
     }
 
-    public StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrailBalanceEntity> strategyHandler() {
+    public StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrialBalanceEntity> strategyHandler() {
         return rootNode;
     }
 
@@ -29,10 +31,13 @@ public class DefaultActivityStrategyFactory {
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class DynamicContext{
+    public static class DynamicContext {
+        // 拼团活动营销配置值对象
         private GroupBuyActivityDiscountVO groupBuyActivityDiscountVO;
+        // 商品信息
         private SkuVO skuVO;
-
+        // 折扣价格
+        private BigDecimal deductionPrice;
     }
 
 }

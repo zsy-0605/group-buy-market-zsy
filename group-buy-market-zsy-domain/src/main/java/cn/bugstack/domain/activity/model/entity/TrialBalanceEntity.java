@@ -13,7 +13,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrailBalanceEntity {
+public class TrialBalanceEntity {
 
     /** 商品ID */
     private String goodsId;

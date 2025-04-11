@@ -30,7 +30,7 @@ public class GroupBuyActivityDiscountVO {
     private String takeLimitCount;
     /*拼团目标*/
     private Integer target;
-    /**/
+    /*有效时间*/
     private String validTime;
     /*拼团时长（分钟）*/
     private String status;
@@ -64,7 +64,7 @@ public class GroupBuyActivityDiscountVO {
         /**
          * 折扣类型（0:base、1:tag）
          */
-        private Byte discountType;
+        private DiscountTypeEnum discountType;
 
         /**
          * 营销优惠计划（ZJ:直减、MJ:满减、N元购）
