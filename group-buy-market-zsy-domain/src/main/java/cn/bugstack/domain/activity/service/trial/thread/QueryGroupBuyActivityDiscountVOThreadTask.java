@@ -8,16 +8,24 @@ import java.util.concurrent.Callable;
 
 public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<GroupBuyActivityDiscountVO> {
 
-    //来源
+    /**
+     * 来源
+     */
     private final String source;
 
-    //渠道
+    /**
+     * 渠道
+     */
     private final String channel;
 
-    //商品Id
+    /**
+     * 商品ID
+     */
     private final String goodsId;
 
-    //活动仓储
+    /**
+     * 活动仓储
+     */
     private final IActivityRepository activityRepository;
 
     public QueryGroupBuyActivityDiscountVOThreadTask(String source, String channel, String goodsId, IActivityRepository activityRepository) {
@@ -35,4 +43,5 @@ public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<Group
         // 查询活动配置
         return activityRepository.queryGroupBuyActivityDiscountVO(scSkuActivityVO.getActivityId());
     }
+
 }
